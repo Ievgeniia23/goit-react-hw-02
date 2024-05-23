@@ -1,35 +1,72 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Feedback from './components/Feedback/Feedback'
+import Options from './components/Options/Options';
+import Notification from './components/Notification/Notification';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0
+  });
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  const updateFeedback = (feedbackType) => {
+
+    setFeedback({...feedback, [feedbackType]: feedback[feedbackType] + 1})
+  }
+  const resetFeedback = () => {
+    setFeedback({
+       good: 0,
+    neutral: 0,
+    bad: 0
+
+    })
+  }
+const resetFeedback = () => {
+    setReviews({ good: 0, neutral: 0, bad: 0 });
+  };
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+
+
+    <Options
+        updateFeedback={updateFeedback} 
+        resetFeedback={resetFeedback}
+      
+        />
+
+      {totalFeedback > 0 ? (<Feedback feedback={feedback} />)
+        : (<Notification />)}
+      
+      
+    </div>
+  );
+};
+
 
 export default App
+
+
+
+// const handleGoodFeedback = () => {
+//     setFeedback(prevFeedback => ({
+//       ...prevFeedback,
+//       good: prevFeedback.good + 1
+//     }));
+//   };
+
+//   const handleNeutralFeedback = () => {
+//     setFeedback(prevFeedback => ({
+//       ...prevFeedback,
+//       neutral: prevFeedback.neutral + 1
+//     }));
+//   };
+
+//   const handleBadFeedback = () => {
+//     setFeedback(prevFeedback => ({
+//       ...prevFeedback,
+//       bad: prevFeedback.bad + 1
+//     }));
+//   };
