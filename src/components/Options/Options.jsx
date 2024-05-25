@@ -1,7 +1,7 @@
 import css from './Options.module.css'
 
 
-const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
+const Options = ({ updateFeedback }) => {
   return (
       <div className={css.optionsWrapper}>
           <h1 className={css.optionsTitle}>Sip Happens Café</h1>
@@ -11,12 +11,7 @@ const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
             <button onClick={() => updateFeedback('good')} className={css.optionsBtn}>Good</button>
             <button onClick={() => updateFeedback('neutral')} className={css.optionsBtn}>Neutral</button>
             <button onClick={() => updateFeedback('bad')} className={css.optionsBtn}>Bad</button>
-        <button onClick={resetFeedback}>Reset</button>
-        {/* {totalFeedback > 0 && (
-        <button onClick={resetFeedback}>
-          Reset
-        </button>
-      )} */}
+       
          
           </div>
     </div>
@@ -25,4 +20,3 @@ const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
 
 export default Options;
 
-// className={css.optionsBtn}
