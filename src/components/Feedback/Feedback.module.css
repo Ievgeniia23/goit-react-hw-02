@@ -1,3 +1,9 @@
 .feedbackWrapper {
     padding: 30px;
 }
+
+.feedbackInfo {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}

@@ -4,11 +4,11 @@ const Feedback = ({ feedback, totalFeedback, positiveFeedback }) => {
   return (
     <div className={css.feedbackWrapper}>
      
-      <p>Good: {feedback.good}</p>
-      <p>Neutral: {feedback.neutral}</p>
-      <p>Bad: {feedback.bad}</p>
-       <p>Total: {totalFeedback}</p>
-      <p>Positive: {positiveFeedback}%</p>
+      <p className={css.feedbackInfo}>Good: {feedback.good}</p>
+      <p className={css.feedbackInfo}>Neutral: {feedback.neutral}</p>
+      <p className={css.feedbackInfo}>Bad: {feedback.bad}</p>
+       <p className={css.feedbackInfo}>Total: {totalFeedback}</p>
+      <p className={css.feedbackInfo}>Positive: {positiveFeedback}%</p>
     </div>
   );
 };
